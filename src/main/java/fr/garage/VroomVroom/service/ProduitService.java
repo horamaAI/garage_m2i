@@ -28,6 +28,8 @@ public class ProduitService {
         return this.dao.save(produit);
     }
 
+    public Produit update(Produit produit) { return this.dao.save(produit);}
+
     public void delete(int id) {
         this.dao.deleteById(id);
     }

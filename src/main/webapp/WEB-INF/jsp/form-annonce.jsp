@@ -32,16 +32,16 @@
 			
 		  	<div class="form-group">
 		    	<label for="image">URL Image</label>
-		    	<input type="text" class="form-control" id="image" name="image"
+		    	<input type="text" class="form-control" id="image" name="imageURL"
 					value="${ produit.imageURL }">
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="desc">Description</label>
-			  <textarea class="form-control" name="desc" rows="5">${ produit.description }</textarea>
+			  <textarea class="form-control" name="description" rows="5">${ produit.description }</textarea>
 			</div>
 		  	<div class="form-group">
 		    	<label>Catégorie</label>
-				<select class="custom-select" name="categorieId">
+				<select class="custom-select" name="categorie.id">
 					<c:forEach var="categorie" items="${ categories }">
 						<c:if test="${ produit.categorie.id == categorie.id }">
 							<option selected value="${ categorie.id }">${ categorie.libelle }</option>

@@ -3,7 +3,7 @@
 
 <t:layout>
 	<jsp:body>	
-		<a href="mesannonces/creer" class="btn btn-primary mb-3">Creer une annonce</a>
+		<a href="mes-annonces/ajouter" class="btn btn-primary mb-3">Creer une annonce</a>
 		<div class="row">
 		<c:forEach var="produit" items="${ produits }">
 			<div class="card col-mb-3 mr-2" style="width: 18rem;">
@@ -18,8 +18,8 @@
 			    <li class="list-group-item">${ produit.prix } euros</li>
 			  </ul>
 			  <div class="card-body">
-			    <a href="mesannonces/modifier?id=${produit.id}" class="card-link">Modifier</a>
-			    <a href="mesannonces/supprimer?id=${produit.id}" class="card-link">Supprimer</a>
+			    <a href="mes-annonces/modifier?id=${produit.id}" class="card-link">Modifier</a>
+			    <a href="mes-annonces/supprimer?id=${produit.id}" class="card-link">Supprimer</a>
 			  </div>
 			</div>
 		</c:forEach>

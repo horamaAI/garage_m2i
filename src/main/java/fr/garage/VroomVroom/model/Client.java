@@ -139,6 +139,5 @@ public class Client {
 	public void setProduits(List<Produit> produits) {
 		this.produits = produits;
 	}
-	
-	
+
 }

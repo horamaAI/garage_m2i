@@ -24,14 +24,14 @@
 				</li>
 
 
-				<li class="nav-item"><a class="nav-link" href="mesannonces">Mes
+				<li class="nav-item"><a class="nav-link" href="mes-annonces">Mes
 						annonces</a></li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
-				<c:if test="${ sessionUser == null}">
+				<c:if test="${ !connected }">
 					<li class="nav-item"><a class="nav-link" href="connexion">Connexion</a></li>
 				</c:if>
-				<c:if test="${ sessionUser != null}">
+				<c:if test="${ connected }">
 					<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 				</c:if>
 			</ul>
