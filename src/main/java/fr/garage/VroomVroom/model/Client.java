@@ -39,7 +39,7 @@ public class Client {
 	private String tel;
 	
 	@Column(name = "CLI_MOT_PASSE" , length = 300, nullable = false)
-	private String motPasse;
+	private String motDePasse;
 	
 	@Column(name = "CLI_DATE_NAISSANCE")
 	private Date dateNaissance;
@@ -100,12 +100,12 @@ public class Client {
 		this.tel = tel;
 	}
 
-	public String getMotPasse() {
-		return motPasse;
+	public String getMotDePasse() {
+		return motDePasse;
 	}
 
-	public void setMotPasse(String motPasse) {
-		this.motPasse = motPasse;
+	public void setMotDePasse(String motPasse) {
+		this.motDePasse = motPasse;
 	}
 
 	public Date getDateNaissance() {
