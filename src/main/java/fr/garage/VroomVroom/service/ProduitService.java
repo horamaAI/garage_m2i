@@ -16,8 +16,8 @@ public class ProduitService {
         return this.dao.findAll();
     }
 
-    public List<Produit> findAllByClientId(int id) {
-        return this.dao.findAllByClientId(id);
+    public List<Produit> findAllByClientName(String username) {
+        return this.dao.findAllByClientName(username);
     }
 
     public Produit findById(int id) {

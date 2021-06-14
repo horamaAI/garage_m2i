@@ -43,11 +43,7 @@ public class Adresse {
 	
 	@OneToOne(mappedBy = "adresse")
 	private Client clientPrincipal;
-	
-	@ManyToMany(mappedBy = "adresses")
-	private List<Client> clients;
 
-	
 	public int getId() {
 		return id;
 	}
@@ -120,12 +116,12 @@ public class Adresse {
 		this.clientPrincipal = clientPrincipal;
 	}
 
-	public List<Client> getClients() {
+	/*public List<Client> getClients() {
 		return clients;
 	}
 
 	public void setClients(List<Client> clients) {
 		this.clients = clients;
-	}
+	}*/
 	
 }

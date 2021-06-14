@@ -17,7 +17,7 @@ public class AuthService implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         Client client = this
                 .dao
-                .findClientByMail(s)
+                .findByAdresseMail(s)
                 .orElseThrow(() -> new UsernameNotFoundException("L'adresse mail n'existe pas"));
 
 

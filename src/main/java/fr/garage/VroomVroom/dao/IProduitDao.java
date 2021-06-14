@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface IProduitDao extends JpaRepository<Produit, Integer> {
 
-    @Query("select p from Produit p where p.client.id = :id")
-    public List<Produit> findAllByClientId(@Param("id") int id);
+    @Query("select p from Produit p where p.client.adresseMail = :username")
+    public List<Produit> findAllByClientName(@Param("username") String username);
 }

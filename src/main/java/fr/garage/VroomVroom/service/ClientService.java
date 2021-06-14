@@ -21,7 +21,7 @@ public class ClientService {
         return this.dao.findById(id).orElseThrow();
     }
 
-    public Optional<Client> findByMail(String mail) {return this.dao.findClientByMail(mail);}
+    public Optional<Client> findByMail(String mail) {return this.dao.findByAdresseMail(mail);}
 
 
     public Client add(Client client) {

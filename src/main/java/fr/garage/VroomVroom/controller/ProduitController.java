@@ -2,12 +2,14 @@ package fr.garage.VroomVroom.controller;
 
 import fr.garage.VroomVroom.model.Client;
 import fr.garage.VroomVroom.model.Produit;
+import fr.garage.VroomVroom.security.ClientPrincipal;
 import fr.garage.VroomVroom.service.CategorieService;
 import fr.garage.VroomVroom.service.ClientService;
 import fr.garage.VroomVroom.service.ProduitService;
 import fr.garage.VroomVroom.session.ClientSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -36,11 +39,12 @@ public class ProduitController {
     CategorieService categorieService;
 
     @GetMapping("")
-    public String mesAnnonces(Model model, HttpSession session) {
-        int id = (Integer) session.getAttribute("userId");
-        List<Produit> produits = produitService.findAllByClientId(id);
+    public String mesAnnonces(Model model, @AuthenticationPrincipal ClientPrincipal clientPrincipal) {
+        System.out.println(clientPrincipal.getUsername());
+        List<Produit> produits = produitService.findAllByClientName(clientPrincipal.getUsername());
 
         model.addAttribute("produits" , produits);
+
         return "liste-annonce";
     }
 
@@ -53,13 +57,13 @@ public class ProduitController {
     }
 
     @PostMapping("/ajouter")
-    public String ajouterAnnonce(Produit produit, BindingResult result) {
+    public String ajouterAnnonce(Produit produit, BindingResult result, @AuthenticationPrincipal ClientPrincipal clientPrincipal) {
         if (result.hasErrors()) {
             return "form-annonce";
         }
 
         Client client = new Client();
-        client.setId(clientSession.getId());
+        client.setId(clientPrincipal.getId());
         produit.setClient(client);
         produitService.add(produit);
 
@@ -74,12 +78,12 @@ public class ProduitController {
     }
 
     @PostMapping("/modifier")
-    public String modifierAnnonce(Produit produit, BindingResult result) {
+    public String modifierAnnonce(Produit produit, BindingResult result, @AuthenticationPrincipal ClientPrincipal clientPrincipal) {
         if (result.hasErrors()) {
             return "form-annonce";
         }
         Client client = new Client();
-        client.setId(clientSession.getId());
+        client.setId(clientPrincipal.getId());
         produit.setClient(client);
         produitService.update(produit);
 

@@ -13,8 +13,6 @@ public class ClientPrincipal implements UserDetails {
     private Client client;
 
     public ClientPrincipal(Client client) {
-
-        System.out.println(client.getMotDePasse());
         this.client = client;
     }
 
@@ -34,6 +32,10 @@ public class ClientPrincipal implements UserDetails {
     @Override
     public String getUsername() {
         return this.client.getAdresseMail();
+    }
+
+    public int getId() {
+        return this.client.getId();
     }
 
     @Override

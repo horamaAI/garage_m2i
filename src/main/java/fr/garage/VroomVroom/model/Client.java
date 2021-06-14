@@ -47,14 +47,6 @@ public class Client {
 	@OneToOne
 	@JoinColumn(name= "CLI_ADRESSE_ID")
 	private Adresse adresse;
-	
-	@ManyToMany
-	@JoinTable(
-		name = "habitation",
-		joinColumns = @JoinColumn(name = "HAB_CLIENT_ID", referencedColumnName = "CLI_ID"),
-		inverseJoinColumns = @JoinColumn(name = "HAB_ADRESSE_ID", referencedColumnName = "ADR_ID")
-	)
-	private List<Adresse> adresses;
 
 	@OneToMany(mappedBy = "client")
 	private List<Produit> produits;
@@ -124,13 +116,13 @@ public class Client {
 		this.adresse = adresse;
 	}
 
-	public List<Adresse> getAdresses() {
+	/*public List<Adresse> getAdresses() {
 		return adresses;
 	}
 
 	public void setAdresses(List<Adresse> adresses) {
 		this.adresses = adresses;
-	}
+	}*/
 
 	public List<Produit> getProduits() {
 		return produits;
