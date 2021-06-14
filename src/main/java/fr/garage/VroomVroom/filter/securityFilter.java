@@ -1,5 +1,6 @@
 package fr.garage.VroomVroom.filter;
 
+/*
 import fr.garage.VroomVroom.session.ClientSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import java.io.IOException;
 
 @Component
 public class securityFilter implements Filter {
+
     @Autowired
     ClientSession clientSession;
 
@@ -31,4 +33,6 @@ public class securityFilter implements Filter {
         //On appelle la Servlet avec cette instruction
         filterChain.doFilter(request, response);
     }
+
 }
+ */

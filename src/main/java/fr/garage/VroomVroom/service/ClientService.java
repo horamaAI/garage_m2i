@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientService {
@@ -20,7 +21,11 @@ public class ClientService {
         return this.dao.findById(id).orElseThrow();
     }
 
+    public Optional<Client> findByMail(String mail) {return this.dao.findClientByMail(mail);}
+
+
     public Client add(Client client) {
         return this.dao.save(client);
     }
+
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -26,39 +27,17 @@ public class LoginController {
     @Autowired
     ClientSession clientSession;
 
-    @RequestMapping(value = "/connexion", method = RequestMethod.GET)
+    @GetMapping("/connexion")
     public String connexion() {
         return "login";
     }
 
-    @RequestMapping(value = "/connexion", method = RequestMethod.POST)
-    public String connexion(Client client, BindingResult result, HttpSession session) {
-        if (result.hasErrors()) {
-            return "login";
-        }
-
-        System.out.println(client.getAdresseMail() + " " + client.getMotDePasse());
-
-        for (Client c : clientService.findAll()) {
-            if (c.getAdresseMail().equals(client.getAdresseMail()) && c.getMotDePasse().equals(client.getMotDePasse())) {
-                session.setAttribute("userMail", client.getAdresseMail());
-                session.setAttribute("userId", c.getId());
-                this.clientSession.setConnected(true);
-                this.clientSession.setId(c.getId());
-                this.clientSession.setMail(client.getAdresseMail());
-                return "redirect:";
-            }
-        }
-
-        return "login";
-    }
-
-    @RequestMapping(value = "/inscription", method = RequestMethod.GET)
+    @GetMapping("/inscription")
     public String inscription() {
         return "inscription";
     }
 
-    @RequestMapping(value = "/inscription", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/inscription", method = RequestMethod.POST)
     public String inscription(Client client, BindingResult result) {
         System.out.println(client.getNom());
         System.out.println(client.getPrenom());
@@ -84,9 +63,9 @@ public class LoginController {
         clientService.add(client);
 
         return "redirect:connexion";
-    }
+    }*/
 
-    @RequestMapping(value = "/deconnexion", method = RequestMethod.GET)
+    @GetMapping("/deconnexion")
     public String deconnexion(HttpSession session) {
         session.removeAttribute("userMail");
         session.removeAttribute("userId");
