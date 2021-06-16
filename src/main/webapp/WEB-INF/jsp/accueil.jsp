@@ -9,8 +9,13 @@
         <div class="cards-list">
             <c:forEach var="produit" items="${ produits }">
                 <div class="card">
-                    <img class="card-img-top"
-                         src="${ produit.imageURL }" alt="Card image cap">
+                    <div class="card-img-container">
+                        <img class="card-img-top"
+                             src="${ produit.imageURL }" alt="Card image cap">
+                        <span class="card-price">${produit.prix} euros</span>
+                    </div>
+
+
                     <div class="card-body">
                         <div class="card-header">
                             <h5 class="card-title">${ produit.libelle }</h5>
@@ -18,8 +23,7 @@
                         </div>
                         <ul class="list-group">
                             <li class="list-group-item">${ produit.categorie.libelle }</li>
-                            <li class="list-group-item">${ produit.client.nom }</li>
-                            <li class="list-group-item">${ produit.prix } euros</li>
+                            <li class="list-group-item">${ produit.client.nom} ${produit.client.prenom}</li>
                         </ul>
                         <div class="card-btn">
                             <a href="produit?id=${produit.getId()}" class="card-link">Voir plus</a>

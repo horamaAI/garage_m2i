@@ -15,18 +15,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
           integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-  <%--  <style>
-        @font-face {
-            font-family: Roboto;
-            src: url("./assets/font/Roboto-Thin.ttf");
-        }
-        @font-face {
-            font-family: Neuro;
-            src: url("./assets/font/Neurochrome.otf");
-        }
+    <style>
 
         body,a:not(.navbar-brand),input {
-            font-family: Roboto;
+            font-family: Tahoma;
         }
         a {
             text-decoration: none;
@@ -45,6 +37,7 @@
         }
 
         .navbar-brand {
+            font-family: Impact;
             color: azure;
             font-size: 1.4rem;
             padding: 20px 25px;
@@ -89,6 +82,19 @@
             border-radius: 10px;
             -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+        }
+
+        .card-img-container {
+            position: relative;
+        }
+
+        .card-price {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border-radius: 10px 0 0 0;
+            background-color: white;
+            padding: 5px 7px;
         }
 
         .card-body {
@@ -161,7 +167,7 @@
             height: 200px;
             width: 300px;
         }
-    </style>--%>
+    </style>
 
     <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
 </head>

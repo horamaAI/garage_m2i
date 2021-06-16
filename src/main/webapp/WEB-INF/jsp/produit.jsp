@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <t:layout>
-    <jsp:attribute name="title">Produit ${ produit.getId()}</jsp:attribute>
+    <jsp:attribute name="title">VroomVroom - ${produit.libelle}</jsp:attribute>
 
     <jsp:body>
         <div class="produit">
