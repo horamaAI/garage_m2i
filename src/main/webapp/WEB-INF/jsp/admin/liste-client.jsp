@@ -1,0 +1,34 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
+
+
+<t:layout>
+    <jsp:attribute name="title">Accueil</jsp:attribute>
+
+    <jsp:body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Telephone</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="client" items="${clients}">
+                    <tr>
+                        <td>${client.nom}</td>
+                        <td>${client.prenom}</td>
+                        <td>${client.adresseMail}</td>
+                        <td>${client.tel}</td>
+                        <td>${client.role.name}</td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+
+
+    </jsp:body>
+</t:layout>

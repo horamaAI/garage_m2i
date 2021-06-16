@@ -4,17 +4,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 
 @Entity
@@ -51,6 +41,10 @@ public class Client {
 
 	@OneToMany(mappedBy = "client")
 	private List<Produit> produits;
+
+	@ManyToOne
+	@JoinColumn(name = "CLI_ROLE_ID")
+	private Role role;
 
 	
 	public int getId() {
@@ -117,13 +111,13 @@ public class Client {
 		this.adresse = adresse;
 	}
 
-	/*public List<Adresse> getAdresses() {
-		return adresses;
+	public Role getRole() {
+		return role;
 	}
 
-	public void setAdresses(List<Adresse> adresses) {
-		this.adresses = adresses;
-	}*/
+	public void setRole(Role role) {
+		this.role = role;
+	}
 
 	public List<Produit> getProduits() {
 		return produits;
