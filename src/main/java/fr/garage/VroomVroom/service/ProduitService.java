@@ -12,7 +12,10 @@ public class ProduitService {
     @Autowired
     IProduitDao dao;
 
-    public List<Produit> findAll() {
+//    public List<Produit> findAll() {
+//        return this.dao.findAll();
+//    }
+    public Page<Produit> findAll() {
         return this.dao.findAll();
     }
 
