@@ -6,15 +6,18 @@ import fr.garage.VroomVroom.service.AdresseService;
 import fr.garage.VroomVroom.service.ClientService;
 import fr.garage.VroomVroom.session.ClientSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 
 @Controller
 public class LoginController {
@@ -27,6 +30,9 @@ public class LoginController {
     @Autowired
     ClientSession clientSession;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     @GetMapping("/connexion")
     public String connexion() {
         return "login";
@@ -37,18 +43,16 @@ public class LoginController {
         return "inscription";
     }
 
-    /*@RequestMapping(value = "/inscription", method = RequestMethod.POST)
+    @PostMapping("/inscription")
     public String inscription(Client client, BindingResult result) {
-        System.out.println(client.getNom());
-        System.out.println(client.getPrenom());
-        System.out.println(client.getAdresseMail());
-        System.out.println(client.getMotDePasse());
-        System.out.println(client.getDateNaissance());
-        System.out.println(client.getAdresse().getRue());
 
-        if (result.hasErrors()) {
-            return "inscription";
-        }
+
+        client.setMotDePasse(this.passwordEncoder.encode(client.getMotDePasse()));
+
+        System.out.println(client.getDateNaissance());
+        /*LocalDate localDate = new LocalDate();
+        localDate.parse(client.getDateNaissance());
+        client.setDateNaissance(localDate);*/
 
         Adresse adresse = new Adresse();
         adresse.setNumRue(client.getAdresse().getNumRue());
@@ -60,10 +64,10 @@ public class LoginController {
         adresse.setPays(client.getAdresse().getPays());
 
         client.setAdresse(adresseService.add(adresse));
-        clientService.add(client);
-
+        /*clientService.add(client);
+*/
         return "redirect:connexion";
-    }*/
+    }
 
     @GetMapping("/deconnexion")
     public String deconnexion(HttpSession session) {

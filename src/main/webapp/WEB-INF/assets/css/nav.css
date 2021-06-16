@@ -1,0 +1,33 @@
+.navbar {
+    position: sticky;
+    display: flex;
+    background-color: #0B090A;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-family: Neuro;
+    color: azure;
+    font-size: 1.4rem;
+    padding: 20px 25px;
+}
+
+.navbar-items {
+    margin-left: auto;
+}
+
+.nav-item {
+    float: left;
+    margin: 0 15px      ;
+}
+
+.nav-link {
+    display: block;
+    text-align: center;
+    padding: 8px 15px;
+
+}
+.nav-link.active {
+    background-color: #3e78a4;
+    border-radius: 20px;
+}

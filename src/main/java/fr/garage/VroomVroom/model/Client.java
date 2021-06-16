@@ -1,5 +1,6 @@
 package fr.garage.VroomVroom.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class Client {
 	private String motDePasse;
 	
 	@Column(name = "CLI_DATE_NAISSANCE")
-	private Date dateNaissance;
+	private LocalDate dateNaissance;
 	
 	@OneToOne
 	@JoinColumn(name= "CLI_ADRESSE_ID")
@@ -100,11 +101,11 @@ public class Client {
 		this.motDePasse = motPasse;
 	}
 
-	public Date getDateNaissance() {
+	public LocalDate getDateNaissance() {
 		return dateNaissance;
 	}
 
-	public void setDateNaissance(Date dateNaissance) {
+	public void setDateNaissance(LocalDate dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
 

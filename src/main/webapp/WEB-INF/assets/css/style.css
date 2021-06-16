@@ -1,0 +1,19 @@
+@import "nav.css";
+@import "container.css";
+@import "card.css";
+@font-face {
+    font-family: Roboto;
+    src: url("../font/Roboto-Thin.ttf");
+}
+@font-face {
+    font-family: Neuro;
+    src: url("../font/Neurochrome.otf");
+}
+
+body,a:not(.navbar-brand),input {
+    font-family: Roboto;
+}
+a {
+    text-decoration: none;
+    color: azure;
+}

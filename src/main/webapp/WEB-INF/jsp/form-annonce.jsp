@@ -31,12 +31,12 @@
 			</div>
 			
 		  	<div class="form-group">
-		    	<label for="image">URL Image</label>
-		    	<input type="text" class="form-control" id="image" name="imageURL"
+		    	<label>URL Image</label>
+		    	<input type="text" class="form-control" name="imageURL"
 					value="${ produit.imageURL }">
 		  	</div>
 		  	<div class="form-group">
-		    	<label for="desc">Description</label>
+		    	<label>Description</label>
 			  <textarea class="form-control" name="description" rows="5">${ produit.description }</textarea>
 			</div>
 		  	<div class="form-group">

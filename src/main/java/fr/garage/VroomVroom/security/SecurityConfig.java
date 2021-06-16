@@ -25,6 +25,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .loginProcessingUrl("/post-connexion")
                     .defaultSuccessUrl("/mes-annonces")
                     .failureUrl("/connexion?erreur=true")
+                    .permitAll()
+
+                .and()
+
+                .logout()
+                    .logoutUrl("/deconnexion")
+                    .logoutSuccessUrl("/accueil")
                     .permitAll();
     }
 
