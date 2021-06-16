@@ -22,7 +22,7 @@
                             <li class="list-group-item">${ produit.prix } euros</li>
                         </ul>
                         <div class="card-btn">
-                            <a href="accueil.jsp" class="card-link">Acheter</a>
+                            <a href="produit?id=${produit.getId()}" class="card-link">Voir plus</a>
                         </div>
                     </div>
 
