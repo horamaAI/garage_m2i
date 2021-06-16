@@ -3,6 +3,8 @@ package fr.garage.VroomVroom.service;
 import fr.garage.VroomVroom.dao.IProduitDao;
 import fr.garage.VroomVroom.model.Produit;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,9 +17,18 @@ public class ProduitService {
 //    public List<Produit> findAll() {
 //        return this.dao.findAll();
 //    }
-    public Page<Produit> findAll() {
-        return this.dao.findAll();
+    public int getNumberOfRecordsProduit() {
+        return (this.dao.getNumberOfRecordsProduit());
     }
+    public Page<Produit> findAll() {
+        return this.dao.findAll(PageRequest.of(0, 10));
+    }
+
+    public Page<Produit> findAllWithPagination(int start, int size) {
+        return this.dao.findAll(PageRequest.of(start, size));
+    }
+
+
 
     public List<Produit> findAllByClientName(String username) {
         return this.dao.findAllByClientName(username);

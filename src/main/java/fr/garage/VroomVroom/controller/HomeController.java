@@ -3,6 +3,7 @@ package fr.garage.VroomVroom.controller;
 import fr.garage.VroomVroom.model.Produit;
 import fr.garage.VroomVroom.service.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +19,9 @@ public class HomeController {
 
     @GetMapping("/accueil")
     public String home(Model model) {
-        List<Produit> produits = this.produitService.findAll();
+//        List<Produit> produits = this.produitService.findAll();
 
-        model.addAttribute("produits" , produits);
+//        model.addAttribute("produits" , produits);
 
         return "accueil";
     }
