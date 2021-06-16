@@ -35,20 +35,24 @@ public class HomeController {
 
     @GetMapping("/")
     public String annoncesTest(Model model, @RequestParam(required = false) Integer page) {
-        int	recordsPerPage = 10;
+        int	recordsPerPage = 15;
         int	numberOfPages = (int) (Math.ceil(this.produitService.getNumberOfRecordsProduit() / recordsPerPage));
 
         if (page == null)
             page = 1;
-        Page<Produit> produits = this.produitService.findAllWithPagination(page - 1, recordsPerPage);
-        model.addAttribute("produits" , produits.getContent());
+
+        Page<Produit>   pageProduits = this.produitService.findAllWithPagination(page - 1, recordsPerPage);
+        List<Produit>   produits = pageProduits.getContent();
+
+        model.addAttribute("produits" , produits);
         model.addAttribute("numberOfPages" , numberOfPages);
         model.addAttribute("page", page);
 
-        for (Produit produit : produits.getContent())
+        for (Produit produit : produits)
             System.out.println(produit.getId() + " " + produit.getLibelle());
-        System.out.println(numberOfPages);
-        System.out.println(page);
+        System.out.println("produits.size() : " + produits.size());
+        System.out.println("numberOfPages : " + numberOfPages);
+        System.out.println("Page number : " + page);
         return "accueil_test";
     }
 

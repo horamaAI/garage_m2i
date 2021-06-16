@@ -17,6 +17,7 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/pagination.css" />
 </head>
 
 <body>
@@ -42,7 +43,7 @@
                 <li class="nav-item">
                     <form method="post" action="deconnexion">
                         <input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }"/>
-                        <input type="submit" value="Déconnexion" class="nav-link">
+                        <input type="submit" value="Dï¿½connexion" class="nav-link">
                     </form>
                 </li>
             </sec:authorize>

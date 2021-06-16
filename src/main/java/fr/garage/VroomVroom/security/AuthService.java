@@ -1,12 +1,12 @@
 package fr.garage.VroomVroom.security;
 
-import fr.garage.VroomVroom.dao.IClientDao;
-import fr.garage.VroomVroom.model.Client;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
+        import fr.garage.VroomVroom.dao.IClientDao;
+        import fr.garage.VroomVroom.model.Client;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.security.core.userdetails.UserDetails;
+        import org.springframework.security.core.userdetails.UserDetailsService;
+        import org.springframework.security.core.userdetails.UsernameNotFoundException;
+        import org.springframework.stereotype.Service;
 
 @Service
 public class AuthService implements UserDetailsService {
