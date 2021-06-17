@@ -19,9 +19,12 @@ public class HomeController {
 
     @GetMapping("/accueil")
     public String home(Model model) {
-//        List<Produit> produits = this.produitService.findAll();
+        Page<Produit>   pageProduits = this.produitService.findAll();
+        List<Produit>   produits = pageProduits.getContent();
 
-//        model.addAttribute("produits" , produits);
+        model.addAttribute("produits" , produits);
+        model.addAttribute("numberOfPages" , 1);
+        model.addAttribute("page", 1);
 
         return "accueil";
     }
@@ -33,7 +36,7 @@ public class HomeController {
         return "produit";
     }
 
-    @GetMapping("/")
+    @GetMapping("/tests")
     public String annoncesTest(Model model, @RequestParam(required = false) Integer page) {
         int	recordsPerPage = 15;
         int	numberOfPages = (int) (Math.ceil(this.produitService.getNumberOfRecordsProduit() / recordsPerPage));
@@ -48,11 +51,6 @@ public class HomeController {
         model.addAttribute("numberOfPages" , numberOfPages);
         model.addAttribute("page", page);
 
-        for (Produit produit : produits)
-            System.out.println(produit.getId() + " " + produit.getLibelle());
-        System.out.println("produits.size() : " + produits.size());
-        System.out.println("numberOfPages : " + numberOfPages);
-        System.out.println("Page number : " + page);
         return "accueil_test";
     }
 

@@ -8,6 +8,8 @@ package fr.garage.VroomVroom.security;
         import org.springframework.security.core.userdetails.UsernameNotFoundException;
         import org.springframework.stereotype.Service;
 
+        import java.util.Optional;
+
 @Service
 public class AuthService implements UserDetailsService {
     @Autowired
@@ -15,12 +17,11 @@ public class AuthService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+
         Client client = this
                 .dao
                 .findByAdresseMail(s)
                 .orElseThrow(() -> new UsernameNotFoundException("L'adresse mail n'existe pas"));
-
-
         return new ClientPrincipal(client);
     }
 }

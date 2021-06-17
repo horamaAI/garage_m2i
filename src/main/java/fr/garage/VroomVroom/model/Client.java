@@ -35,6 +35,7 @@ public class Client {
 	@Column(name = "CLI_DATE_NAISSANCE")
 	private LocalDate dateNaissance;
 	
+//	@OneToOne(fetch = FetchType.LAZY)
 	@OneToOne
 	@JoinColumn(name= "CLI_ADRESSE_ID")
 	private Adresse adresse;

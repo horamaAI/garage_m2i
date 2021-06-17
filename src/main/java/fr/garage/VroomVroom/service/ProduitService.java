@@ -20,15 +20,14 @@ public class ProduitService {
     public int getNumberOfRecordsProduit() {
         return (this.dao.getNumberOfRecordsProduit());
     }
+
     public Page<Produit> findAll() {
-        return this.dao.findAll(PageRequest.of(0, 10));
+        return this.dao.findAll(PageRequest.of(0, this.dao.getNumberOfRecordsProduit()));
     }
 
     public Page<Produit> findAllWithPagination(int start, int size) {
         return this.dao.findAll(PageRequest.of(start, size));
     }
-
-
 
     public List<Produit> findAllByClientName(String username) {
         return this.dao.findAllByClientName(username);

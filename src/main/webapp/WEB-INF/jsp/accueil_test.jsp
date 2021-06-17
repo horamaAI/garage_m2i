@@ -38,7 +38,7 @@
                 <a class="active" href="#">Previous</a>
             </c:if>
             <c:if test="${page != 1}">
-                <a class="active" href="?page=${page - 1}">Previous</a>
+                <a class="active" href="tests?page=${page - 1}">Previous</a>
             </c:if>
             <c:forEach begin="1" end="${numberOfPages}" var="i">
                 <c:choose>
@@ -46,7 +46,7 @@
                         <a class="active" href="#">${i}</a>
                     </c:when>
                     <c:otherwise>
-                        <a href="?page=${i}">${i}</a>
+                        <a href="tests?page=${i}">${i}</a>
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
@@ -54,7 +54,7 @@
                 <a class="active" href="#">Next</a>
             </c:if>
             <c:if test="${page != numberOfPages}">
-                <a class="active" href="?page=${page + 1}">Next</a>
+                <a class="active" href="tests?page=${page + 1}">Next</a>
             </c:if>
         </div>
 <!--

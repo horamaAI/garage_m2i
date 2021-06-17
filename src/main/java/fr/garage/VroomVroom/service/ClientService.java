@@ -17,12 +17,23 @@ public class ClientService {
         return this.dao.findAll();
     }
 
+    public List<Client> findAllById(int id) {
+        return this.dao.findAllById(id);
+    }
+
+    public List<Client>   findAllByMail(String mail) { return this.dao.findAllByMail(mail);}
+
+    public int getNumberOfRecordsClient() {
+        return this.dao.getNumberOfRecordsClient();
+    }
+
+    public Client update(Client client) { return this.dao.save(client);}
+
     public Client findById(int id) {
         return this.dao.findById(id).orElseThrow();
     }
 
     public Optional<Client> findByMail(String mail) {return this.dao.findByAdresseMail(mail);}
-
 
     public Client add(Client client) {
         return this.dao.save(client);
