@@ -1,5 +1,6 @@
 package fr.garage.VroomVroom.controller;
 
+import fr.garage.VroomVroom.model.Attribut;
 import fr.garage.VroomVroom.model.Client;
 import fr.garage.VroomVroom.model.Produit;
 import fr.garage.VroomVroom.security.ClientPrincipal;
@@ -40,7 +41,7 @@ public class ProduitController {
         System.out.println(clientPrincipal.getUsername());
         List<Produit> produits = produitService.findAllByClientName(clientPrincipal.getUsername());
 
-        model.addAttribute("produits" , produits);
+        model.addAttribute("produits", produits);
 
         return "liste-annonce";
     }
@@ -75,14 +76,18 @@ public class ProduitController {
     }
 
     @PostMapping("/modifier")
-    public String modifierAnnonce(Produit produit, BindingResult result, @AuthenticationPrincipal ClientPrincipal clientPrincipal) {
+    public String modifierAnnonce(Produit produit, Attribut attribut, BindingResult result, @AuthenticationPrincipal ClientPrincipal clientPrincipal) {
+        System.out.println(attribut.getValeur());
+
         if (result.hasErrors()) {
             return "form-annonce";
         }
         Client client = new Client();
         client.setId(clientPrincipal.getId());
         produit.setClient(client);
+/*
         produitService.update(produit);
+*/
 
         return "redirect:../mes-annonces";
     }

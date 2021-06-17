@@ -3,6 +3,7 @@ package fr.garage.VroomVroom.service;
 import fr.garage.VroomVroom.dao.IAttributDao;
 import fr.garage.VroomVroom.model.Attribut;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public class AttributService {
     IAttributDao dao;
 
     public List<Attribut> findAll() {
-        return this.dao.findAll();
+        return this.dao.findAll(Sort.by("produit").ascending());
     }
 
     public Attribut findById(int id) {
