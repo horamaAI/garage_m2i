@@ -20,102 +20,112 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "produit")
 public class Produit {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "PRO_ID")
-	private int id;
-	
-	@Column(name = "PRO_LIBELLE", length = 50, nullable = false)
-	@NotBlank
-	@Size(max = 50)
-	private String libelle;
-	
-	@Column(name = "PRO_PRIX", precision = 10, scale = 2, nullable = false)
-	@NotNull
-	private BigDecimal prix;
-	
-	@Column(name = "PRO_IMAGE", length = 255)
-	@Size(max = 255)
-	private String imageURL;
-	
-	@Column(name = "PRO_DESCRIPTION")
-	@Lob
-	private String description;
-	
-	@ManyToOne
-	@JoinColumn(name = "PRO_CLIENT_ID")
-	private Client client;
-	
-	@ManyToOne
-	@JoinColumn(name = "PRO_CATEGORIE_ID")
-	private Categorie categorie;
-	
-	@OneToMany(mappedBy = "id.produit")
-	private List<CommandeDetail> details;
 
-	public int getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PRO_ID")
+    private int id;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @Column(name = "PRO_LIBELLE", length = 50, nullable = false)
+    @NotBlank
+    @Size(max = 50)
+    private String libelle;
 
-	public String getLibelle() {
-		return libelle;
-	}
+    @Column(name = "PRO_PRIX", precision = 10, scale = 2, nullable = false)
+    @NotNull
+    private BigDecimal prix;
 
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
-	}
+    @Column(name = "PRO_IMAGE", length = 255)
+    @Size(max = 255)
+    private String imageURL;
 
-	public BigDecimal getPrix() {
-		return prix;
-	}
+    @Column(name = "PRO_DESCRIPTION")
+    @Lob
+    private String description;
 
-	public void setPrix(BigDecimal prix) {
-		this.prix = prix;
-	}
+    @ManyToOne
+    @JoinColumn(name = "PRO_CLIENT_ID")
+    private Client client;
 
-	public String getImageURL() {
-		return imageURL;
-	}
+    @ManyToOne
+    @JoinColumn(name = "PRO_CATEGORIE_ID")
+    private Categorie categorie;
 
-	public void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
-	}
+    @OneToMany(mappedBy = "id.produit")
+    private List<CommandeDetail> details;
 
-	public String getDescription() {
-		return description;
-	}
+    @OneToMany(mappedBy = "produit")
+    private List<Attribut> attributs;
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public Client getClient() {
-		return client;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setClient(Client client) {
-		this.client = client;
-	}
+    public String getLibelle() {
+        return libelle;
+    }
 
-	public Categorie getCategorie() {
-		return categorie;
-	}
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
 
-	public void setCategorie(Categorie categorie) {
-		this.categorie = categorie;
-	}
+    public BigDecimal getPrix() {
+        return prix;
+    }
 
-	public List<CommandeDetail> getDetails() {
-		return details;
-	}
+    public void setPrix(BigDecimal prix) {
+        this.prix = prix;
+    }
 
-	public void setDetails(List<CommandeDetail> details) {
-		this.details = details;
-	}
+    public String getImageURL() {
+        return imageURL;
+    }
 
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+
+    public List<CommandeDetail> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<CommandeDetail> details) {
+        this.details = details;
+    }
+    
+    public List<Attribut> getAttributs() {
+        return attributs;
+    }
+
+    public void setAttributs(List<Attribut> attributs) {
+        this.attributs = attributs;
+    }
 }

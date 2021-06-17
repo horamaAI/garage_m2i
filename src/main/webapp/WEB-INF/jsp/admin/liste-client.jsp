@@ -3,7 +3,7 @@
 
 
 <t:layout>
-    <jsp:attribute name="title">Accueil</jsp:attribute>
+    <jsp:attribute name="title">VroomVroom - Client admin</jsp:attribute>
 
     <jsp:body>
         <table>
@@ -14,6 +14,8 @@
                     <th>Email</th>
                     <th>Telephone</th>
                     <th>Role</th>
+                    <th>Adresse</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +26,8 @@
                         <td>${client.adresseMail}</td>
                         <td>${client.tel}</td>
                         <td>${client.role.name}</td>
+                        <td>${client.adresse.getId()}</td>
+                        <td></td>
                     </tr>
                 </c:forEach>
             </tbody>

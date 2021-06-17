@@ -26,10 +26,10 @@ public class Adresse {
 	@Column(name = "ADR_RUE" , length = 50, nullable = false)
 	private String rue;
 	
-	@Column(name = "ADR_LGNE2" , length = 10)
+	@Column(name = "ADR_LIGNE_2" , length = 10)
 	private String ligne2;
 	
-	@Column(name = "ADR_LIGNE3" , length = 10)
+	@Column(name = "ADR_LIGNE_3" , length = 10)
 	private String ligne3; 
 	
 	@Column(name = "ADR_CODE_POSTAL" , length = 10, nullable = false)

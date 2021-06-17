@@ -22,10 +22,13 @@
 }
 
 .nav-link {
+    color: azure;
     display: block;
     text-align: center;
     padding: 8px 15px;
-
+}
+.nav-link:hover {
+    color: azure;
 }
 .nav-link.active {
     background-color: #3e78a4;

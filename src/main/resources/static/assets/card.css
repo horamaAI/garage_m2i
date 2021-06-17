@@ -52,7 +52,6 @@
 
 .list-group {
     list-style: circle;
-    padding-inline-start: 30px;
 }
 
 .card-btn {
@@ -87,7 +86,7 @@
     padding: 5px 10px;
 }
 
-img {
+.card-img-top {
     border-radius: 10px 10px 0 0;
     height: 200px;
     width: 300px;
