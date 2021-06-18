@@ -35,10 +35,10 @@
         </div>
         <div class="pagination">
             <c:if test="${page == 1}">
-                <a class="active" href="#">Previous</a>
+                Previous
             </c:if>
             <c:if test="${page != 1}">
-                <a class="active" href="tests?page=${page - 1}">Previous</a>
+                <a class="active" href="accueil?page=${page - 1}">Previous</a>
             </c:if>
             <c:forEach begin="1" end="${numberOfPages}" var="i">
                 <c:choose>
@@ -46,15 +46,15 @@
                         <a class="active" href="#">${i}</a>
                     </c:when>
                     <c:otherwise>
-                        <a href="tests?page=${i}">${i}</a>
+                        <a href="accueil?page=${i}">${i}</a>
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
             <c:if test="${page == numberOfPages}">
-                <a class="active" href="#">Next</a>
+                Next
             </c:if>
             <c:if test="${page != numberOfPages}">
-                <a class="active" href="tests?page=${page + 1}">Next</a>
+                <a class="active" href="accueil?page=${page + 1}">Next</a>
             </c:if>
         </div>
 <!--

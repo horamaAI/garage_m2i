@@ -39,12 +39,14 @@
                 <label>Description</label>
                 <textarea class="form-control" name="description" rows="5">${ produit.description }</textarea>
             </div>
+            <!--
             <form:form method="post" modelAttribute="attribut">
                 <div class="form-group">
                     <label>Attribut</label>
                     <input type="text" class="form-control" name="attribut.valeur"
                            value="${ attribut.valeur }"></div>
             </form:form>
+            -->
             <div class="input-group mt-2">
                 <span class="input-group-text">Catégorie</span>
                 <select class="form-control form-select" name="categorie.id">

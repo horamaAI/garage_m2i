@@ -64,8 +64,7 @@ public class LoginController {
         adresse.setPays(client.getAdresse().getPays());
 
         client.setAdresse(adresseService.add(adresse));
-        /*clientService.add(client);
-*/
+        clientService.add(client);
         return "redirect:connexion";
     }
 

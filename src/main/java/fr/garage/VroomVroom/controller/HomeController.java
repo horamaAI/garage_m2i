@@ -17,7 +17,7 @@ public class HomeController {
     @Autowired
     ProduitService produitService;
 
-    @GetMapping("/accueil")
+    @GetMapping("/ancien_accueil")
     public String home(Model model) {
         Page<Produit>   pageProduits = this.produitService.findAll();
         List<Produit>   produits = pageProduits.getContent();
@@ -36,16 +36,22 @@ public class HomeController {
         return "produit";
     }
 
-    @GetMapping("/tests")
+    @GetMapping("/accueil")
     public String annoncesTest(Model model, @RequestParam(required = false) Integer page) {
-        int	recordsPerPage = 15;
-        int	numberOfPages = (int) (Math.ceil(this.produitService.getNumberOfRecordsProduit() / recordsPerPage));
+        int	recordsPerPage = 16;
+        int numberOfRecordsProduits = this.produitService.getNumberOfRecordsProduit();
+        int	numberOfPages = (int) (Math.ceil(1.0 * numberOfRecordsProduits / recordsPerPage));
 
         if (page == null)
             page = 1;
 
         Page<Produit>   pageProduits = this.produitService.findAllWithPagination(page - 1, recordsPerPage);
         List<Produit>   produits = pageProduits.getContent();
+
+//        System.out.println("Page " + page);
+//        System.out.println("numberOfRecordsProduits " + numberOfRecordsProduits);
+//        System.out.println("recordsPerPage " + recordsPerPage);
+//        System.out.println("numberOfPages " + numberOfPages);
 
         model.addAttribute("produits" , produits);
         model.addAttribute("numberOfPages" , numberOfPages);

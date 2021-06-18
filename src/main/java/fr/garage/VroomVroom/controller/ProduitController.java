@@ -85,9 +85,8 @@ public class ProduitController {
         Client client = new Client();
         client.setId(clientPrincipal.getId());
         produit.setClient(client);
-/*
+
         produitService.update(produit);
-*/
 
         return "redirect:../mes-annonces";
     }
